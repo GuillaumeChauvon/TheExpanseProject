@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/PDCAmmo.gd" type="Script" id=1]
+[ext_resource path="res://arts/PDCAmmo.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
+
+[node name="PDCAmmo" type="Area2D"]
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -119, -94 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_rect = Rect2( 58, 48, 21, 32 )

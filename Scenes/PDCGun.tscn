@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://arts/PDCFire.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/PDCGun.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/PDCAmmo.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Fire",
+"speed": 5.0
+} ]
+
+[node name="PDCGun" type="RigidBody2D"]
+script = ExtResource( 3 )
+PDCAmmo = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+frames = SubResource( 1 )
+animation = "Fire"
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 16, -0.0279236 )
+rotation = 1.5708
+polygon = PoolVector2Array( -4, 8, 4, 8, 4, 13, 5, 13, 5, 15, 3, 15, 3, 16, -3, 16, -3, 15, -5, 15, -5, 13, -4, 13 )
+
+[node name="Canon" type="Position2D" parent="."]
+position = Vector2( 5.99999, -0.0104713 )
