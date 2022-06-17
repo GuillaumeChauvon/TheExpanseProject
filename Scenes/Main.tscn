@@ -54,7 +54,6 @@ frames = ExtResource( 7 )
 
 [node name="PDCGun" parent="." instance=ExtResource( 9 )]
 position = Vector2( 267, 339 )
-mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="PDCGun"]
 position = Vector2( 8, -30 )

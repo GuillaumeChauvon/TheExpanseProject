@@ -1,15 +1,132 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://arts/PowerHUD.png" type="Texture" id=2]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 42, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 56, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 28, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 14, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 14, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 28, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 42, 0, 14, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 56, 0, 14, 64 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "0_33",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Debug",
+"speed": 2.5
+} ]
+
+[node name="SpaceshipHUD" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="Timer" type="Label" parent="."]
+[node name="LinearSpeed" type="Label" parent="."]
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-margin_left = -54.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = 27.0
-text = "0"
+anchor_bottom = 1.0
+margin_left = -235.0
+margin_top = -45.0
+margin_right = -135.0
+margin_bottom = -45.0
+text = "LinearSpeed : 0"
+align = 1
+valign = 1
+
+[node name="RotationalSpeed" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -390.0
+margin_top = -45.0
+margin_right = -241.0
+margin_bottom = -45.0
+text = "RotationalSpeed : 0
+"
+align = 1
+valign = 1
+
+[node name="PowerContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.9
+anchor_top = 0.9
+anchor_right = 0.9
+anchor_bottom = 0.95
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PowerContainer"]
+frames = SubResource( 6 )
+animation = "Debug"
+frame = 4
+playing = true
+
+[node name="Ammo" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_top = -45.0
+margin_right = -450.0
+margin_bottom = -45.0
+text = "Ammo : 0"
+align = 1
+valign = 1

@@ -9,8 +9,13 @@ extends CanvasLayer
 func _ready():
 	pass # Replace with function body.
 
-func update_time(time):
-	$Timer.text = str(stepify(time, 0.01))
+func update_speeds(ls, rs, a):
+	$LinearSpeed.text = "LinearSpeed : " + str(stepify(ls.length(), 0.01))
+	$RotationalSpeed.text = "RotationalSpeed : " + str(stepify(rs, 0.01))
+	$Ammo.text = "Ammo : " + str(a)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func set_power_animated_sprite(animation):
+	$PowerContainer/AnimatedSprite.play(animation)
